@@ -23,7 +23,7 @@ app.whenReady().then(() => {
     { label: "vdName4", type: "radio" },
   ]);
 
-  tray.setToolTip("This is my application.");
+  tray.setToolTip("vdNameCurrent");
   tray.setContextMenu(contextMenu);
 
   app.on("activate", () => {
