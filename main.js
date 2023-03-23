@@ -21,12 +21,16 @@ app.whenReady().then(() => {
     });
   });
 
-  const { Desktops } = require("windows-api-classes");
-  const desktops = new Desktops();
+  const winapi = require("winapi");
 
-  const currentDesktop = desktops.current;
-
-  console.log(`Current virtual desktop: ${currentDesktop.name}`);
+  winapi.desktop
+    .getCurrent()
+    .then(desktop => {
+      console.log(`Current virtual desktop: ${desktop.name}`);
+    })
+    .catch(error => {
+      console.error(error);
+    });
 
   tray.setToolTip("vdNameCurrent");
   tray.setContextMenu(contextMenu);
