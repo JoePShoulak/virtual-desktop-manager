@@ -12,8 +12,5 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^23.2.0"
-  },
-  "dependencies": {
-    "node-gyp": "^9.3.1"
   }
 }
