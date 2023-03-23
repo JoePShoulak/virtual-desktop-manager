@@ -1,4 +1,4 @@
-const { app, Tray, Menu } = require("electron");
+const { app, Tray, Menu, globalShortcut } = require("electron");
 
 let tray = null;
 
@@ -14,6 +14,14 @@ app.whenReady().then(() => {
     { label: "Exit", role: "quit" },
   ]);
 
+  globalShortcut.register("Control+Command+Tab", () => {
+    tray.displayBalloon({
+      title: "Display",
+      content: "You are on display vdNameCurrent",
+    });
+  });
+
   tray.setToolTip("vdNameCurrent");
+  tray.setTitle("vdNameCurrent");
   tray.setContextMenu(contextMenu);
 });
